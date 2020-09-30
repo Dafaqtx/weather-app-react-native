@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import * as Location from 'expo-location';
-import { WEATHER_API_KEY } from 'react-native-dotenv';
-import WeatherInfo from './components/WeatherInfo';
-import UnitsPicker from './components/UnitsPicker';
+import { WEATHER_API_KEY } from '@env';
 import ReloadIcon from './components/ReloadIcon';
-import WeatherDetails from './components/WeatherDetails';
+import CurrentWeather from './components/CurrentWeather';
 
 import { colors } from './utils';
 
@@ -49,19 +47,19 @@ export default function App() {
     } catch (error) {}
   }
 
-  if (currentWeather) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.main}>
-          <StatusBar style="auto" />
-          <UnitsPicker unitsSystem={unitsSystem} setUnitsSystem={setUnitsSystem} />
-          <ReloadIcon load={load} />
-          <WeatherInfo currentWeather={currentWeather} />
-        </View>
-        <WeatherDetails currenWeather={currenWeather} unitsSystem={unitsSystem} />
-      </View>
+  /* eslint-disable */
+
+  {
+    currentWeather && (
+      <CurrentWeather
+        currentWeather={currentWeather}
+        unitsSystem={unitsSystem}
+        setUnitsSystem={setUnitsSystem}
+        load={load}
+      />
     );
   }
+
   if (errorMessage) {
     return (
       <View style={styles.container}>
@@ -70,13 +68,16 @@ export default function App() {
         <StatusBar style="auto" />
       </View>
     );
+  } else {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color={colors.PRIMARY_COLOR} />
+        <StatusBar style="auto" />
+      </View>
+    );
   }
-  return (
-    <View style={styles.container}>
-      <ActivityIndicator size="large" color={colors.PRIMARY_COLOR} />
-      <StatusBar style="auto" />
-    </View>
-  );
+
+  /* eslint-enable */
 }
 
 const styles = StyleSheet.create({

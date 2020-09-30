@@ -49,8 +49,8 @@ export default function App() {
 
   /* eslint-disable */
 
-  {
-    currentWeather && (
+  if (currentWeather) {
+    return (
       <CurrentWeather
         currentWeather={currentWeather}
         unitsSystem={unitsSystem}
@@ -58,9 +58,7 @@ export default function App() {
         load={load}
       />
     );
-  }
-
-  if (errorMessage) {
+  } else if (errorMessage) {
     return (
       <View style={styles.container}>
         <ReloadIcon load={load} />

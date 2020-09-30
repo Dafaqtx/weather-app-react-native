@@ -6,10 +6,10 @@ import WeatherInfo from './components/WeatherInfo'
 import UnitsPicker from './components/UnitsPicker'
 import ReloadIcon from './components/ReloadIcon'
 import WeatherDetails from './components/WeatherDetails'
+import { WEATHER_API_KEY } from "@env"
 
 import { colors } from './utils'
 
-const WEATHER_API_KEY = 'dbd5c1d5c69ef5ac818b23da00d7a3bb'
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 
 export default function App() {

@@ -13,7 +13,7 @@ const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 export default function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
-  const [unitsSystem, setUnitsSystem] = useState('metrics');
+  const [unitsSystem, setUnitsSystem] = useState('metric');
 
   useEffect(() => {
     load();

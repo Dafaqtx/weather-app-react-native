@@ -11,7 +11,7 @@ export default function UnitsPicker({ unitsSystem, setUnitsSystem }) {
         onValueChange={setUnitsSystem}
         mode="dropdown"
         itemStyle={{ fontSize: 12 }}>
-        <Picker.Item label="C°" value="metrics" />
+        <Picker.Item label="C°" value="metric" />
         <Picker.Item label="F°" value="imperial" />
       </Picker>
     </View>

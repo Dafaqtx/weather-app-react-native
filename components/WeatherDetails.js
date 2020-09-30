@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
-import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { colors } from '../utils';
 
@@ -19,14 +19,9 @@ export default function WeatherDetails({ currentWeather, unitsSystem }) {
   return (
     <View style={styles.WeatherDetails}>
       <View style={styles.WeatherDetailsRow}>
-        <View
-          style={{
-            ...styles.WeatherDetailsBox,
-            borderRightWidth: 1,
-            borderRightColor: BORDER_COLOR
-          }}>
+        <View style={styles.WeatherDetailsBox}>
           <View style={styles.WeatherDetailsRow}>
-            <FontAwesome name="tempterature-low" size={25} color={PRIMARY_COLOR} />
+            <FontAwesome5 name="temperature-low" size={25} color={PRIMARY_COLOR} />
             <View style={styles.WeatherDetailsItems}>
               <Text>Feels like:</Text>
               <Text style={styles.textSecondary}>{feels_like}</Text>
@@ -43,16 +38,10 @@ export default function WeatherDetails({ currentWeather, unitsSystem }) {
           </View>
         </View>
       </View>
-      <View
-        style={{ ...styles.WeatherDetailsRow, borderTopWidth: 1, borderTopColor: BORDER_COLOR }}>
-        <View
-          style={{
-            ...styles.WeatherDetailsBox,
-            borderRightWidth: 1,
-            borderRightColor: BORDER_COLOR
-          }}>
+      <View style={styles.WeatherDetailsRow}>
+        <View style={styles.WeatherDetailsBox}>
           <View style={styles.WeatherDetailsRow}>
-            <FontAwesome name="weather-windy" size={30} color={PRIMARY_COLOR} />
+            <MaterialCommunityIcons name="weather-windy" size={30} color={PRIMARY_COLOR} />
             <View style={styles.WeatherDetailsItems}>
               <Text>Wind speed:</Text>
               <Text style={styles.textSecondary}>{windSpeed}</Text>
